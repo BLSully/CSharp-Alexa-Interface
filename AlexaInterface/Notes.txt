@@ -1,0 +1,8 @@
+﻿Interfaces obviously don't deserialize automatically. Need a way to detect type of RequestBody.Request
+
+http://stackoverflow.com/questions/19432236/deserializing-json-using-custom-deserializer-with-json-net
+http://stackoverflow.com/questions/8030538/how-to-implement-custom-jsonconverter-in-json-net-to-deserialize-a-list-of-base
+http://stackoverflow.com/questions/19510532/registering-a-custom-jsonconverter-globally-in-json-net
+http://stackoverflow.com/questions/19432236/deserializing-json-using-custom-deserializer-with-json-net
+http://dotnetbyexample.blogspot.com/2012/02/json-deserialization-with-jsonnet-class.html
+https://brettedotnet.wordpress.com/2014/07/16/web-api-and-interface-parameters/

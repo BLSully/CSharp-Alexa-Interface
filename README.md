@@ -25,24 +25,32 @@ Following methods are chainable:
 
 **Example**
 ===========
-  public ResponseBody AlexaEndpoint([FromBody]RequestBody body) {
-    ResponseBody resp = new ResponseBody();
-    
-    switch(request.Request.Type) {
-      case Request.RequestType.LaunchRequest:
-        //todo: welcome message here
-        break;
-      case Request.RequestType.IntentRequest:
-        IntentRequest intent = (IntentRequest)request.Request
-        switch(intent.Intent.Name) {
-          case "HelloWorldIntent":
-            resp
-                    .SetOutputSpeech("You invoked Hello World.", OutputSpeechType.PlainText)
-                    .SetReprompt("Say another command.", OutputSpeechType.PlainText);
+   
+
+    public ResponseBody AlexaEndpoint([FromBody]RequestBody body) {
+        ResponseBody resp = new ResponseBody();
+        
+        switch(request.Request.Type) {
+          case Request.RequestType.LaunchRequest:
+            //todo: welcome message here
+            break;
+          case Request.RequestType.IntentRequest:
+            IntentRequest intent = (IntentRequest)request.Request
+            switch(intent.Intent.Name) {
+              case "HelloWorldIntent":
+                resp
+                        .SetOutputSpeech("You invoked Hello World.", OutputSpeechType.PlainText)
+                        .SetReprompt("Say another command.", OutputSpeechType.PlainText);
+                break;
+            }
+            break;
+          case Request.RequestType.SessionEndedRequest:
             break;
         }
-        break;
-      case Request.RequestType.SessionEndedRequest:
-        break;
-    }
-  }
+      }
+
+**WebApiConfig**
+
+To configure JSON.NET to be able to deserialize `IRequest` interface, add this to `App_Start/WebApiConfig.cs`
+
+    config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new AlexaInterface.JsonConverters.IRequestConverter());

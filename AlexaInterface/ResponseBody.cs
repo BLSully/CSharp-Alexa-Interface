@@ -28,23 +28,14 @@ namespace AlexaInterface {
     }
 
     public ResponseBody SetCard(string title, string content, CardType type) {
-      this.Response.Card = new Card {
-        Type = type,
-        Title = title,
-        Content = type == CardType.Simple ? content : null,
-        Text = type == CardType.Standard ? content : null
-      };
+      this.Response.Card = new Card(title, content, type);
 
       return this;
     }
 
     public ResponseBody SetReprompt(string speech, OutputSpeechType type) {
       this.Response.Reprompt = new Reprompt();
-      this.Response.Reprompt.OutputSpeech = new OutputSpeech() {
-        Type = type,
-        Text = type == OutputSpeechType.PlainText ? speech : null,
-        SSML = type == OutputSpeechType.SSML ? speech : null,
-      };
+      this.Response.Reprompt.OutputSpeech = new OutputSpeech(speech, type);
 
       return this;
     }

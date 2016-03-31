@@ -1,6 +1,6 @@
 **Summary**
 ===========
-Collection of classes to make requests from and responses to Amazon's Alexa service easy. Uses JSON.NET for (de)serialization Request and Response bodies. 
+Collection of classes to make requests from and responses to Amazon's Alexa service easy. Uses JSON.NET for (de)serialization Request and Response bodies. It's pretty naive right now... no validation of constraints (e.g. response size limits in Cards, etc).
 
 **Methods**
 =======
